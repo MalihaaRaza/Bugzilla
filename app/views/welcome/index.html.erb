@@ -1,0 +1,18 @@
+<h1>BUGZILLA</h1>
+<% if !user_signed_in? %>
+<p> please Login or create an account</p>
+<%else%>
+  <%if current_user.user_type == 'Manager' %>
+    <h2> Welcome Manager </h2>
+  <%end%>
+  <%if current_user.user_type == 'Developer' %>
+    <h2> Welcome Developer </h2>
+    <br>
+  <%end%>
+  <%if current_user.user_type == 'QA' %>
+    <h2> Welcome QA </h2>
+  <%end%>
+
+  <%= link_to('Projects','projects#show') %>
+
+<%end%>
